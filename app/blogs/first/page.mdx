@@ -1,0 +1,50 @@
+import {MainImage} from "../../../components/mdx/main-image";
+import Container from "../../../components/mdx/container";
+import {AccordianMdx} from "../../../components/mdx/accordians";
+
+<Container>
+    # The evolution of design thinking: insights and perspectives
+    ## Welcome to my First Mdx blog!
+    ### Welcome to my First Mdx blog!
+    #### How to use Docker
+
+    This is some **bold** and _italics_ text.
+
+    This is a list in markdown:
+
+    - One
+    - Two
+    - Three
+
+    Checkout my React component:
+
+    [//]: # (<MainImage src="/main-blog-image.jpg" alt="First Blog Image" />)
+
+    <AccordianMdx title={"We are using docker, but what is it?"} content={"docker is used to create a local virtual machine in your computer"}/>
+
+    ```javascript
+    console.log("Hello World");
+    ```
+
+
+
+    ```javascript
+    // index.css
+
+    const { remarkCodeHike } = require("@code-hike/mdx");
+    const theme = require("shiki/themes/monokai.json");
+
+    const withMDX = require("@next/mdx")({
+    extension: /\.mdx?$/,
+    options: {
+    remarkPlugins: [[remarkCodeHike, { theme }]],
+    rehypePlugins: [],
+},
+});
+
+    module.exports = withMDX({
+    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+});
+    ```
+
+</Container>
