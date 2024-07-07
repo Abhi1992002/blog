@@ -9,7 +9,7 @@ export function MainImage({
   alt: string;
 }>) {
   return (
-    <div className="relative w-full aspect-video mb-20">
+    <div className="relative w-[98%] mx-auto aspect-video mb-20">
       <Image
         src={src}
         alt={alt}

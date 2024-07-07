@@ -5,9 +5,10 @@ import { Post, Tag } from "@prisma/client";
 import { Blog } from "@/components/home/blog";
 import { getAllBlogs } from "@/actions/getAllBlogs";
 import toast from "react-hot-toast";
+import {Roadmap} from "@/components/home/roadmap";
 
 type FilterType = Tag | "all";
-type BlogsType = Post[] | undefined;
+export type BlogsType = Post[] | undefined;
 export const RunSection = () => {
   const [filter, setFilter] = useState<FilterType>("all");
   const [blogData, setBlogData] = useState<BlogsType>([]);
@@ -17,7 +18,7 @@ export const RunSection = () => {
       .then((data) => {
         setBlogData(data.blogs);
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("please refresh the page");
       });
   }, []);
@@ -25,11 +26,12 @@ export const RunSection = () => {
   return (
     <div
       className={
-        "w-[96%] pb-[80px] border border-neutral-900 bg-neutral-900 mx-auto z-[52] relative rounded-[30px] drop-shadow-[0_0_200px_black]"
+        "w-[96%] pb-[80px] border border-neutral-200 dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-900 mx-auto z-[52] relative rounded-[30px]   dark:drop-shadow-[0_0_200px_black]"
       }
     >
       <Filter filter={filter} setFilter={setFilter} />
       <Blogs blogData={blogData} />
+      {/*<Roadmap  />*/}
     </div>
   );
 };
@@ -64,7 +66,7 @@ const Filter = ({
     >
       <Button
         variant={filter == "all" ? "primary" : "ghost"}
-        className={"rounded-[20px] text-[16px] font-normal"}
+        className={"rounded-[20px] text-[16px] font-normal "}
         onClick={() => setFilter("all")}
       >
         All

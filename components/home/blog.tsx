@@ -12,14 +12,14 @@ type BlogType = Post;
 export const Blog = ({ blog }: { blog: BlogType }) => {
   return (
     <Link
-      href={`/blog/${blog.title}`}
+      href={`/blogs/${blog.href}`}
       className={
         "decoration-transparent hover:scale-[1.02] transition-all duration-200 ease-in-out"
       }
     >
       <Card
         className={
-          "w-[100%] rounded-[20px] pb-[60px] relative col-span-1 row-span-1 h-[100%]  bg-neutral-800 m-0 border "
+          "w-[100%] rounded-[20px] pb-[60px] relative col-span-1 row-span-1 h-[100%] bg-neutral-50 dark:bg-neutral-800 m-0 border border-neutral-300 dark:border-neutral-700 "
         }
       >
         <CardHeader className={"p-0"}>
@@ -35,8 +35,8 @@ export const Blog = ({ blog }: { blog: BlogType }) => {
             }
           />
         </CardHeader>
-        <CardContent className={"pb-0"}>
-          <h3 className={"text-[28px] font-normal mt-4"}>{blog.title}</h3>
+        <CardContent className={"pb-0 border-t border-neutral-300 dark:border-none"}>
+          <h3 className={"text-[28px] font-normal mt-4 text-white dark:text-neutral-900"}>{blog.title}</h3>
           <p className={" font-light mt-4 line-clamp-2"}>{blog.content}</p>
         </CardContent>
         <CardFooter className={"m-0 space-x-2 absolute bottom-0"}>

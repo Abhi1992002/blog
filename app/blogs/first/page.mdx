@@ -1,50 +1,67 @@
 import {MainImage} from "../../../components/mdx/main-image";
 import Container from "../../../components/mdx/container";
 import {AccordianMdx} from "../../../components/mdx/accordians";
+import {StopSectionMdx} from "../../../components/mdx/stop-section-mdx";
+import {RunSectionMdx} from "../../../components/mdx/run-section-mdx";
+import {ExtraInformation} from "../../../components/mdx/extra-information";
+import {ContentCenter} from "../../../components/mdx/content-center";
 
 <Container>
-    # The evolution of design thinking: insights and perspectives
-    ## Welcome to my First Mdx blog!
-    ### Welcome to my First Mdx blog!
-    #### How to use Docker
+    <StopSectionMdx>
+        # The evolution of design thinking: insights and perspectives
+        A thought-provoking topic that sheds light on the creative process. Whether an experienced designer or someone with a budding interest in the field. This post aims to provide insights, share practical tools, and inspire new ideas.
+        <ExtraInformation tag={"Thoughts"} readTime={"3 min read"} />
+    </StopSectionMdx>
 
-    This is some **bold** and _italics_ text.
+    <RunSectionMdx>
 
-    This is a list in markdown:
+        <MainImage src="/main-blog-image.jpg" alt="First Blog Image" />
 
-    - One
-    - Two
-    - Three
+        <ContentCenter>
+            ## Welcome to my First Mdx blog!
+            ### Welcome to my First Mdx blog!
+            #### How to use Docker
 
-    Checkout my React component:
+            This is some **bold** and _italics_ text.
 
-    [//]: # (<MainImage src="/main-blog-image.jpg" alt="First Blog Image" />)
+            This is a list in markdown:
 
-    <AccordianMdx title={"We are using docker, but what is it?"} content={"docker is used to create a local virtual machine in your computer"}/>
+            - One
+            - Two
+            - Three
 
-    ```javascript
-    console.log("Hello World");
-    ```
+            Checkout my React component:
 
 
+            <AccordianMdx title="We are using docker, but what is it?" content="docker is used to create a local virtual machine in your computer"/>
 
-    ```javascript
-    // index.css
+            ```javascript
+            console.log("Hello World");
+            ```
 
-    const { remarkCodeHike } = require("@code-hike/mdx");
-    const theme = require("shiki/themes/monokai.json");
+            ```javascript
+            // index.css
 
-    const withMDX = require("@next/mdx")({
-    extension: /\.mdx?$/,
-    options: {
-    remarkPlugins: [[remarkCodeHike, { theme }]],
-    rehypePlugins: [],
-},
-});
+            const { remarkCodeHike } = require("@code-hike/mdx");
+            const theme = require("shiki/themes/monokai.json");
 
-    module.exports = withMDX({
-    pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-});
-    ```
+            const withMDX = require("@next/mdx")({
+            extension: /\.mdx?$/,
+            options: {
+            remarkPlugins: [[remarkCodeHike, { theme }]],
+            rehypePlugins: [],
+        },
+        });
+
+            module.exports = withMDX({
+            pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+        });
+            ```
+
+        </ContentCenter>
+
+
+    </RunSectionMdx>
+
 
 </Container>

@@ -1,4 +1,5 @@
 import { ContactRunSection } from "@/components/contact/contact-run-section";
+import {ContactStopSection} from "@/components/contact/contact-stop-section";
 
 export const ContactPage = () => {
   return (
@@ -9,14 +10,4 @@ export const ContactPage = () => {
   );
 };
 
-const ContactStopSection = () => {
-  return (
-    <div
-      className={
-        "flex items-center justify-center  pt-[100px] w-full flex-col pb-[100px] sticky top-[100px] -z-1"
-      }
-    >
-      <h1 className={"w-[70%] max-w-[900px]"}>Contact me</h1>
-    </div>
-  );
-};
+

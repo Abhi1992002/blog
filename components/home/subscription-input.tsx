@@ -24,18 +24,18 @@ export const SubscriptionInput = () => {
   };
   return (
     <>
-      <div className={"w-[50%] flex max-w-[700px]"}>
+      <div className={"w-[80%] lg:w-[50%] flex flex-col lg:flex-row gap-2 lg:gap-0 max-w-[700px]"}>
         <Input
           placeholder={"Enter your email address"}
           type={"email"}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={
-            "bg-neutral-700 rounded-2xl rounded-r-none text-[17px] p-6 focus:outline-none focus-visible:ring-0"
+            "bg-neutral-200 dark:bg-neutral-700 rounded-2xl lg:rounded-r-none text-[17px] p-6 focus:outline-none focus-visible:ring-0"
           }
         />
         <Button
-          className={"rounded-2xl relative text-[17px] left-[-15px] p-6 px-12"}
+          className={"rounded-2xl relative text-[17px] left-0 lg:left-[-15px]  p-6 px-12"}
           onClick={submitHandler}
         >
           Subscribe

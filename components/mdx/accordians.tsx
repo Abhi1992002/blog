@@ -19,7 +19,7 @@ export function AccordianMdx({
       <Accordion
         type="single"
         collapsible
-        className={"border px-4 rounded-lg "}
+        className={"border px-4 rounded-lg bg-white dark:bg-black"}
       >
         <AccordionItem value={title}>
           <AccordionTrigger className={"text-lg font-para"}>

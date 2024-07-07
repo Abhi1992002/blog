@@ -9,6 +9,7 @@ import { Navigation } from "@/components/navigation";
 import { Contact } from "@/components/contact";
 import { Toaster } from "react-hot-toast";
 import { SessionProvider } from "next-auth/react";
+import {SmallNavigation} from "@/components/small-navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "prose prose-invert max-w-none prose-h1:text-[88px] prose-h1:font-normal prose-h1:text-center prose-h2:text-[48px] prose-h2:font-normal ",
+          "prose prose-invert max-w-none dark:prose-p:text-neutral-300 prose-p:text-neutral-700 prose-h1:text-[40px]  md:prose-h1:text-[60px] lg:prose-h1:text-[88px] prose-a:text-neutral-800 dark:prose-a:text-neutral-100 prose-h1:text-neutral-800 dark:prose-h1:text-neutral-200 prose-h2:text-neutral-800 dark:prose-h2:text-neutral-200 prose-h3:text-neutral-800 dark:prose-h3:text-neutral-200 prose-h1:font-normal prose-h1:text-center prose-h2:text-[48px] prose-h2:font-normal ",
           inter.className,
         )}
       >
@@ -37,6 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
+          <SmallNavigation />
           {children}
           <Contact />
           <Toaster />

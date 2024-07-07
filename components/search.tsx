@@ -9,10 +9,14 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { getAllBlogs } from "@/actions/getAllBlogs";
+import toast from "react-hot-toast";
+import { BlogsType } from "@/components/home/run-section";
+import { useRouter } from "next/navigation";
 
 export const Search = () => {
   const [open, setOpen] = useState(false);
-
+  const [blogData, setBlogData] = useState<BlogsType>([]);
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -25,13 +29,23 @@ export const Search = () => {
     return () => document.removeEventListener("keydown", down);
   }, []);
 
+  useEffect(() => {
+    getAllBlogs()
+      .then((data) => {
+        setBlogData(data.blogs);
+      })
+      .catch(() => {
+        toast.error("please refresh the page");
+      });
+  }, []);
+
   return (
     <>
       <Button
         variant={"secondary"}
         onClick={() => setOpen((open) => !open)}
         className={
-          "text-sm font-light text-neutral-300 w-[300px] flex justify-between bg-black border border-neutral-800"
+          "text-sm font-light text-neutral-700 dark:text-neutral-300 gap-8 w-[200px] lg:w-[300px] flex justify-between bg-white dark:bg-black border border-neutral-300 dark:border-neutral-800"
         }
       >
         Search Blog....
@@ -39,7 +53,7 @@ export const Search = () => {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <SearchBar open={open} setOpen={setOpen} />
+      <SearchBar open={open} setOpen={setOpen} blogData={blogData} />
     </>
   );
 };
@@ -47,21 +61,35 @@ export const Search = () => {
 const SearchBar = ({
   open,
   setOpen,
+  blogData,
 }: {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  blogData: BlogsType;
 }) => {
+  const router = useRouter();
+  const handleKeyDown = (href: string) => {
+    setOpen(false);
+    router.push(`/blogs/${href}`);
+  };
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput placeholder="Search a blog...." className={"z-[101]"} />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup heading="All Blogs">
-          <CommandItem>Blog 1</CommandItem>
-          <CommandItem>Blog 2</CommandItem>
-          <CommandItem>Blog 3</CommandItem>
-          <CommandItem>Blog 4</CommandItem>
-          <CommandItem>Blog 5</CommandItem>
+          {blogData &&
+            blogData.map((v, i) => {
+              return (
+                <CommandItem
+                  key={i}
+                  onSelect={() => handleKeyDown(v.href)}
+                  className={"line-clamp-1"}
+                >
+                  {v.title}
+                </CommandItem>
+              );
+            })}
         </CommandGroup>
       </CommandList>
     </CommandDialog>

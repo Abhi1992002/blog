@@ -17,7 +17,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       );
     },
     pre: (props) => (
-      <pre className={cn("w-full p-0", props.className)}>{props.children} </pre>
+      <pre className={cn("w-full p-0 bg-transparent", props.className)}>{props.children} </pre>
     ),
     ...components,
   };

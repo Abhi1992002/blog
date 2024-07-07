@@ -1,0 +1,49 @@
+import {MainImage} from "../../../components/mdx/main-image";
+import Container from "../../../components/mdx/container";
+import {AccordianMdx} from "../../../components/mdx/accordians";
+import {StopSectionMdx} from "../../../components/mdx/stop-section-mdx";
+import {RunSectionMdx} from "../../../components/mdx/run-section-mdx";
+import {ExtraInformation} from "../../../components/mdx/extra-information";
+import {ContentCenter} from "../../../components/mdx/content-center";
+
+<Container>
+    <StopSectionMdx>
+        # Heading
+        Description About Blog and below is extra information
+        <ExtraInformation tag={"Thoughts"} readTime={"3 min read"} />
+    </StopSectionMdx>
+
+    <RunSectionMdx>
+
+        <MainImage src="/main-blog-image.jpg" alt="First Blog Image" />
+
+        <ContentCenter>
+
+            ### Main Subheading
+            #### Basic Inter Subheading
+
+            This is some **bold** and _italics_ text.
+
+            This is a list in markdown:
+
+            - One
+            - Two
+            - Three
+
+            Checkout my React component:
+
+
+            <AccordianMdx title="This is an accordian" content="docker is used to create a local virtual machine in your computer"/>
+
+            ```javascript
+            console.log("Hello World");
+            ```
+
+
+        </ContentCenter>
+
+
+    </RunSectionMdx>
+
+
+</Container>
